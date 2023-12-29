@@ -60,5 +60,10 @@ This project helped me get this soft skills:
 
 ## 📸 Screenshots <a name = "screenshots"></a>
 
+![Class Diagram](src/main/webapp/WEB-INF/assets/Login.png)
+![Class Diagram](src/main/webapp/WEB-INF/assets/Screenshot 2023-12-29 161410.png)
+![Class Diagram](src/main/webapp/WEB-INF/assets/admindash.png)
+![Class Diagram](src/main/webapp/WEB-INF/assets/createuserfrom admin.png)
+![Class Diagram](src/main/webapp/WEB-INF/assets/update.png)
 
 
