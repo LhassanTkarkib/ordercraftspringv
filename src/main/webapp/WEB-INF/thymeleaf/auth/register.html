@@ -1,0 +1,27 @@
+<!-- templates/auth/register.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+
+
+<body>
+<h2>Register</h2>
+<form action="/orderCraftSpringversion/register" method="post" th:object="${user}">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" th:field="*{name}" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" th:field="*{email}" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" th:field="*{password}" required>
+
+    <button type="submit">Register</button>
+
+    <a th:href="@{/login}">Back to login page</a>
+</form>
+</body>
+</html>

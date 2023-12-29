@@ -1,5 +1,4 @@
 package com.orderCraftSpringApp.model.classes;
-
 import com.orderCraftSpringApp.model.enums.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,32 +17,72 @@ import java.util.List;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="orderID")
+    @Column(name = "orderID")
     private Long orderID;
 
-    @Column(name="orderSerial")
-    private String orderSerial;
-
-    @Column(name="orderDate")
+    @Column(name = "orderDate")
     private String orderDate;
 
     @Enumerated(EnumType.STRING)
-    @Column(name="orderStatus")
+    @Column(name = "orderStatus")
     private OrderStatus orderStatus;
 
     @ManyToOne
-    @JoinColumn(name="UserID", nullable = false)
+    @JoinColumn(name = "UserID", nullable = false)
     private User orderClient;
 
-    @ManyToOne
-    @JoinColumn(name="reportID", nullable = false)
-    private SalesReport salesReport;
 
     @ManyToMany
     @JoinTable(
-            name = "order_item",
+            name = "order_line",
             joinColumns = @JoinColumn(name = "orderID"),
-            inverseJoinColumns = @JoinColumn(name = "itemID")
+            inverseJoinColumns = @JoinColumn(name = "productID")
     )
-    private List<Item> orderItems;
+    private List<Product> Products;
+
+    public Order(String orderDate, OrderStatus orderStatus, User orderClient) {
+        this.orderDate = orderDate;
+        this.orderStatus = orderStatus;
+        this.orderClient = orderClient;
+    }
+
+    public Long getOrderID() {
+        return orderID;
+    }
+
+    public void setOrderID(Long orderID) {
+        this.orderID = orderID;
+    }
+
+    public String getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public OrderStatus getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public User getOrderClient() {
+        return orderClient;
+    }
+
+    public void setOrderClient(User orderClient) {
+        this.orderClient = orderClient;
+    }
+
+    public List<Product> getProducts() {
+        return Products;
+    }
+
+    public void setProducts(List<Product> products) {
+        Products = products;
+    }
 }

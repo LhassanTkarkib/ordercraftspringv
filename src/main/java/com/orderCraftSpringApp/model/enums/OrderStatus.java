@@ -1,8 +1,7 @@
 package com.orderCraftSpringApp.model.enums;
 
 public enum OrderStatus {
-    PENDING,
-    PROCESSING,
-    COMPLETED,
-    CANCELLED
+    IN_PROGRESS,
+    DONE,
+    CANCELED
 }
